@@ -53,7 +53,6 @@ def novoCadastro():
 
         cadastro.adicionarValorFixo(conta, valor, frequencia)
 
-
     #Loop para adicionar um gasto variável à tabela de Gastos
     while (input("\nDeseja adicionar um novo gasto variável a tabela? Sim ou Não: ") == "Sim" ): 
         conta = input("Informe o tipo de gasto: ")
