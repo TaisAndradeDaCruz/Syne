@@ -101,6 +101,7 @@ class Cadastro:
             this.gastosFixos[conta] = [valor, frequencia, total]
 
 
+
         for conta in this.gastosVariaveis:
             valor = input(f"{conta} Valor: ")
             frequencia = input(f"{conta} Frequência: ")
