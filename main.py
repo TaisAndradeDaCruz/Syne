@@ -89,9 +89,6 @@ def executarSessao(arquivo):
 
 
 
-
-
-
 #Roda o código
 if __name__ == "__main__": 
     main()

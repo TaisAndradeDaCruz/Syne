@@ -125,4 +125,5 @@ class Cadastro:
 
         print(f"O total de suas contas no mês foi de R$ {total}")
 
+
         return
