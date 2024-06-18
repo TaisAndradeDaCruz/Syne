@@ -1,6 +1,7 @@
 #A biblioteca "pandas" é um framework para manipular dados no ecxel
 import pandas as pd
 
+
 class Cadastro:
     def __init__(this):
 

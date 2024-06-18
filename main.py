@@ -88,7 +88,6 @@ def executarSessao(arquivo):
     cadastro.mostrarValores()
 
 
-
 #Roda o código
 if __name__ == "__main__": 
     main()
