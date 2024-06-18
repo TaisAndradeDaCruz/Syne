@@ -9,22 +9,22 @@ class Cadastro:
         this.gastosFixos = {
             "Medicamentos"          : [ ],
             "Internet"              : [ ],
-            # "Streaming"             : [ ],
-            # "Aluguel"               : [ ],
-            # "Mensalidade acadêmica" : [ ],
-            # "Academia"              : [ ],
-            # "Seguro do carro"       : [ ]
+            "Streaming"             : [ ],
+            "Aluguel"               : [ ],
+            "Mensalidade acadêmica" : [ ],
+            "Academia"              : [ ],
+            "Seguro do carro"       : [ ]
         }
         
         #Inicialização da classe com dicionários vazios para gastos variáveis
         this.gastosVariaveis = {
             "Conta de Água"         : [ ],
             "Conta de Luz"          : [ ],
-            # "Supermercado"          : [ ],
-            # "Combustível"           : [ ],
-            # "Transporte"            : [ ],
-            # "Cuidados Pessoais"     : [ ],
-            # "Lazer"                 : [ ]
+            "Supermercado"          : [ ],
+            "Combustível"           : [ ],
+            "Transporte"            : [ ],
+            "Cuidados Pessoais"     : [ ],
+            "Lazer"                 : [ ]
         }
 
         this.totalFixos = 0
