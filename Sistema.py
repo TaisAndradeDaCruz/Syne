@@ -1,6 +1,7 @@
 import os
 import Usuario
 import CaminhoPasta as Pasta
+
 class Sistema:
 
     def __init__(self):
@@ -8,7 +9,7 @@ class Sistema:
         return
     
     def Logar(self, Nome):
-        nome = Nome.split()
+        nome = Nome.strip()
 
         usuario = Usuario.Usuario(nome)
 
