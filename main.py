@@ -14,12 +14,9 @@ def main():
     print("|Com nossa plataforma você adiministra seus gastos de forma ágil e eficiente,|")
     print("|promovendo um controle financeiro mais econômico e consciente.              | ")
 
-    #Variável para caso o usuário já tenha um cadastro efetuado
-    conta = input("\nVocê possui cadastro nesse serviço? Caso sim insira o nome de ususário. Se não digite (N): ")
-    if ( conta == "N" ):
-        novoCadastro()
-    else:
-        executarSessao(f"{conta}.xlsx")
+    #Variável para o cadastro do usuário
+    conta = input("\nVocê possui cadastro nesse serviço? Caso não possua digite (N): ")
+    novoCadastro()
 
 
 #Inicia um novo cadastramento
@@ -27,77 +24,69 @@ def novoCadastro():
     cadastro = Cdstr.Cadastro()
 
 
-    #Solicita e armazena o nome completo do usuário e o número de pessoas na família
-    print(Fore.GREEN + "\n                                    |Cadastro do Usuário|" + Style.RESET_ALL)
+    #Solicita e armazena o nome de usuário da pessoa
+    print(Fore.GREEN + "\n                      |Cadastro do Usuário|" + Style.RESET_ALL)
     Nome = input("\nInsira seu nome de usuário: ")
-    pessoasNaFamilia = input("Quantas pessoas compõe sua família: ")
 
-    #Inicia o Cadastro do usuário com o nome e o número de pessoas na família
-    cadastro.IniciarCadastro(Nome, pessoasNaFamilia)
+
+    #Inicia o Cadastro do usuário com o nome
+    cadastro.IniciarCadastro(Nome)
+
 
     #Exibe os valores dos Gastos Fixos
     time.sleep(0.9)
     cadastro.mostrarValoresFixos()
 
+
     time.sleep(1.3)
     print(Fore.GREEN + "\n                         |Alteração dos Dados|              " + Style.RESET_ALL)
-    #Loop para adicionar novos gastos à tabela de Gastos
+    #Loop para adicionar novos gastos à tabela de Gastos Fixos
     while (input("\nDeseja adicionar um novo Gasto Fixo na tabela? Sim (S) ou Não (N): ") == "S" ): 
         conta = input("Informe o tipo de gasto: ")
 
         cadastro.adicionarValorFixo(conta)
 
-    #Loop para remover valores da tabela de Gastos
+
+    #Loop para remover valores da tabela de Gastos Fixos
     while (input("\nDeseja remover algum valor Fixo da tabela? Sim (S) ou Não (N): ") == "S" ): 
         conta = input("Informe a conta que deseja excluir: ")
 
         cadastro.removerValorFixo(conta)
 
-    #Exibe os valores dos Gastos Fixos
+
+    #Exibe os valores dos Gastos Variáveis
     time.sleep(0.9)
     cadastro.mostrarValoresVariaveis()
 
     time.sleep(1.3)
     print(Fore.GREEN + "\n                         |Alteração dos Dados|              " + Style.RESET_ALL)
 
-    #Loop para adicionar um gasto variável à tabela de Gastos
+    #Loop para adicionar um gasto variável à tabela de Gastos Variáveis
     while (input("\nDeseja adicionar um novo Gasto Variável na tabela? Sim (S) ou Não (N): ") == "S" ):  
         conta = input("Informe o tipo de gasto: ")
 
         cadastro.adicionarValorVariavel(conta)
 
+
+    #Loop para remover valores da tabela de Gastos Variáveis
     while (input("\nDeseja remover algum valor Variável da tabela? Sim (S) ou Não (N): ") == "S" ): 
         conta = input("Informe a conta que deseja excluir: ")
 
         cadastro.removerValorVariavel(conta)
 
+
     #Altera os valores dos Gastos na Tabela
     cadastro.alterarValores()
 
 
-    #Exibe os valores dos Gastos Fixos
     time.sleep(0.9)
     cadastro.salvarDados()
+
 
     #Salva os dados cadastrados se o usuário desejar
     if (input("\nDeseja salvar os dados cadastrados? Sim (S) ou Não (N): ") == "S" ): 
         cadastro.salvarDados(False)
 
-
-# Exibir uma conta já existente
-def executarSessao(arquivo):
-    cadastro = Cdstr.Cadastro()
-
-    if os.path.exists(f"{salvoCadastros}/{arquivo}"):
-        dadosJaFeitos = pd.read_excel(f"{salvoCadastros}/{arquivo}", index_col=None)
-        print(dadosJaFeitos)
-
-        modificarGastosFixos(cadastro, "fixo")
-        modificarGastosVaria(cadastro, "variável")
-
-        cadastro.alterarValores()
-        cadastro.salvarDados(jaTemCadastro=True)
-    
 
 #Roda o código
 if __name__ == "__main__": 

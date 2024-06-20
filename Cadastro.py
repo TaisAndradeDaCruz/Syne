@@ -5,7 +5,7 @@ from colorama import init, Fore, Style #Importa funcionalidades do módulo color
 class Cadastro:
     def __init__(self):
 
-        #Inicialização da classe com dicionários vazios para gastos fixos
+        #Inicialização da classe com dicionários vazios para Gastos Fixos
         self.gastosFixos = {
             "Medicamentos"          : [ ],
             "Internet"              : [ ],
@@ -16,7 +16,7 @@ class Cadastro:
             "Seguro do Carro"       : [ ]
         }
         
-        #Inicialização da classe com dicionários vazios para gastos variáveis
+        #Inicialização da classe com dicionários vazios para Gastos Variáveis
         self.gastosVariaveis = {
             "Conta de Água"         : [ ],
             "Conta de Luz"          : [ ],
@@ -31,11 +31,11 @@ class Cadastro:
         self.totalVariaveis = 0
 
 
-    #Método para iniciar um novo cadastro com o nome e o número de pessoas na família
-    def IniciarCadastro(self, nome, pessoasNaFamilia):
+    #Método para iniciar um novo cadastro
+    def IniciarCadastro(self, nome):
         
         self.nome = nome
-        self.pessoasFamilia = pessoasNaFamilia
+
 
 
     #Método para salvar os dados do Cadastro em um arquivo Excel
@@ -63,7 +63,9 @@ class Cadastro:
         contas = self.gastosFixos.copy()
         for conta in contas:
             print(f"{conta}: R$ {contas.get(conta)}")
-        
+
+
+    #Método para exibir os valores dos Gastos Variáveis    
     def mostrarValoresVariaveis(self):
         print(Fore.GREEN + "\n           |Exemplificação de gastos com Valores Variáveis|         \n" + Style.RESET_ALL)
         contas = self.gastosVariaveis.copy()
@@ -93,11 +95,13 @@ class Cadastro:
 
         return
     
+
     #Método para remover uma conta dos Gastos Variáveis
     def removerValorVariavel(self, conta):
         self.gastosVariaveis.pop(conta)
 
         return
+
 
     #Método para alterar os valores das contas dos Gastos Fixos e Variáveis
     def alterarValores(self):
@@ -111,7 +115,8 @@ class Cadastro:
             total = int(valor) * int(frequencia)
             self.gastosFixos[conta] = [valor, frequencia, total]
 
-        print(Fore.GREEN + "                     |Gastos com Valores Variáveis|         \n" + Style.RESET_ALL)
+        print(Fore.GREEN + "\n                        |Confecção da Tabela|              " + Style.RESET_ALL)
+        print(Fore.GREEN + "\n                    |Gastos com Valores Variáveis|         \n" + Style.RESET_ALL)
         for conta in self.gastosVariaveis:
             valor = input(f"{conta} | Valor: ")
             frequencia = input(f"{conta} | Frequência: ")
@@ -127,7 +132,6 @@ class Cadastro:
         gastosFixos = [x[2] for x in dadosFixos]
 
 
-
         total = 0
 
 
@@ -138,6 +142,7 @@ class Cadastro:
             total += gasto
 
 
+        #Exibe o total da despesa do usuário
         print(Fore.BLUE + f"   |O total de suas despesas no mês foi de R$ {total}|               " + Style.RESET_ALL)
 
         return
