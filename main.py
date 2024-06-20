@@ -83,11 +83,6 @@ def novoCadastro():
     cadastro.salvarDados()
 
 
-    #Salva os dados cadastrados se o usuário desejar
-    if (input("\nDeseja salvar os dados cadastrados? Sim (S) ou Não (N): ") == "S" ): 
-        cadastro.salvarDados(False)
-
-
 #Roda o código
 if __name__ == "__main__": 
     main()
